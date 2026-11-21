@@ -1,0 +1,167 @@
+/* styles.css — the frame around Lantern Hunt's two panels. */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #17101f;
+  color: #f2e9d8;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  min-height: 100vh;
+}
+
+.hud {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 18px;
+  background: #241a33;
+  border-bottom: 2px solid #3a2a4d;
+}
+
+.brand {
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffd23e;
+  white-space: nowrap;
+}
+
+.level-name { font-weight: 700; white-space: nowrap; }
+
+.counter {
+  font-weight: 700;
+  color: #8fd6c2;
+  white-space: nowrap;
+}
+
+.timer {
+  position: relative;
+  flex: 1;
+  min-width: 120px;
+  height: 26px;
+  background: #120c1a;
+  border: 1px solid #4a3a5e;
+  border-radius: 13px;
+  overflow: hidden;
+}
+
+.timer-fill {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #2e9b8a, #8fd6c2);
+  transition: width 0.25s linear;
+}
+
+.timer-fill.low { background: linear-gradient(90deg, #c94f43, #ff9a7a); }
+
+.timer-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+  color: #fff;
+  text-shadow: 0 1px 2px #000;
+}
+
+.score, .hints { font-weight: 700; white-space: nowrap; }
+
+button {
+  background: #3a2a4d;
+  color: #f2e9d8;
+  border: 1px solid #5a4a72;
+  border-radius: 8px;
+  padding: 7px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) { background: #4a3a63; }
+button:disabled { opacity: 0.45; cursor: default; }
+
+button.big {
+  background: #ffd23e;
+  color: #3a2400;
+  border: none;
+  font-size: 18px;
+  padding: 12px 26px;
+  border-radius: 10px;
+}
+
+button.big:hover { background: #ffe08a; }
+
+.boards {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding: 12px 16px 4px;
+}
+
+.panel-label {
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #b8a8cc;
+  margin-bottom: 6px;
+}
+
+canvas {
+  display: block;
+  width: 600px;
+  height: 600px;
+  border: 3px solid #3a2a4d;
+  border-radius: 10px;
+  cursor: crosshair;
+  background: #000;
+}
+
+.foot {
+  padding: 8px 18px 12px;
+  text-align: center;
+}
+
+.dots { margin-bottom: 6px; }
+
+.dot { margin: 0 4px; }
+
+.dot.current {
+  background: #ffd23e;
+  color: #3a2400;
+  border-color: #ffd23e;
+}
+
+.dot.done { background: #2e9b8a; border-color: #2e9b8a; }
+
+.intro { color: #d9c8a0; font-style: italic; margin-bottom: 4px; }
+.keys { color: #9a8ab0; font-size: 13px; }
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(12, 7, 20, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.overlay.hidden { display: none; }
+
+.card {
+  background: #241a33;
+  border: 2px solid #ffd23e;
+  border-radius: 16px;
+  padding: 28px 36px;
+  max-width: 560px;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+}
+
+.card h1 { margin: 0 0 10px; color: #ffd23e; font-size: 34px; }
+.card p { line-height: 1.55; }
+.card ul { text-align: left; line-height: 1.8; }
+.card .tagline { color: #8fd6c2; font-weight: 700; }
+.card .small { color: #b8a8cc; font-size: 14px; }

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lantern Hunt — Spot the Difference</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="hud">
+  <div class="brand">🏮 Lantern Hunt</div>
+  <div class="level-name" id="levelName">Level 1 · Lantern Market</div>
+  <div class="counter" id="counter">Found 0/10 · 10 remain</div>
+  <div class="timer">
+    <div class="timer-fill" id="timerFill"></div>
+    <span class="timer-text" id="timerText">5:00</span>
+  </div>
+  <div class="score" id="score">Score 0</div>
+  <div class="hints" id="hints">Hints 3</div>
+  <button id="hintBtn" type="button">💡 Hint (H)</button>
+  <button id="restartBtn" type="button">↺ Restart (R)</button>
+  <button id="muteBtn" type="button">Sound on (M)</button>
+</header>
+
+<main class="boards">
+  <section class="panel">
+    <div class="panel-label">LEFT · original</div>
+    <canvas id="leftPanel" width="600" height="600"></canvas>
+  </section>
+  <section class="panel">
+    <div class="panel-label">RIGHT · changed</div>
+    <canvas id="rightPanel" width="600" height="600"></canvas>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="dots">
+    <button id="dot1" class="dot" type="button">1 Market</button>
+    <button id="dot2" class="dot" type="button">2 Reef</button>
+    <button id="dot3" class="dot" type="button">3 Garden</button>
+  </div>
+  <div class="intro" id="levelIntro">Dusk over the night market. Ten things changed on the right.</div>
+  <div class="keys">Click a difference on either picture · H hint (−15s) · wrong click −5s · N next level · 1/2/3 jump to a level</div>
+</footer>
+
+<div class="overlay" id="titleOverlay">
+  <div class="card">
+    <h1>🏮 Lantern Hunt</h1>
+    <p class="tagline">A spot-the-difference hunt in three hand-drawn worlds.</p>
+    <p>Two pictures sit side by side. They look the same — they are not.
+    Click every difference you can find before the lanterns burn down.
+    A gold ring marks each find; the counter tells you how many still hide.</p>
+    <ul>
+      <li><strong>Level 1 · Lantern Market</strong> — 10 differences, 5:00</li>
+      <li><strong>Level 2 · Coral Reef</strong> — 10 differences, 4:00</li>
+      <li><strong>Level 3 · Clockwork Garden</strong> — 12 differences, 3:00</li>
+    </ul>
+    <p class="small">Hints cost 15 seconds. A wrong click costs 5. Find them all to win the level.</p>
+    <button id="playBtn" class="big" type="button">▶ Start the hunt</button>
+  </div>
+</div>
+
+<div class="overlay hidden" id="levelOverlay">
+  <div class="card">
+    <h1 id="levelStars">★★★</h1>
+    <p id="levelResult">Level cleared!</p>
+    <button id="nextBtn" class="big" type="button">Next level (N) ▶</button>
+  </div>
+</div>
+
+<div class="overlay hidden" id="overOverlay">
+  <div class="card">
+    <h1>⏳ Time ran out</h1>
+    <p id="overText">The lanterns burned down.</p>
+    <button id="retryBtn" class="big" type="button">↺ Try this level again</button>
+  </div>
+</div>
+
+<div class="overlay hidden" id="winOverlay">
+  <div class="card">
+    <h1>🏆 Hunt complete!</h1>
+    <p id="winScore">Final score: 0</p>
+    <p id="winTime">You cleared all three hunts.</p>
+    <button id="againBtn" class="big" type="button">↺ Play again</button>
+  </div>
+</div>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
